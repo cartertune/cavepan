@@ -1,86 +1,73 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import { ChangeEvent, useState } from 'react'
+import Button from '../components/Button'
+import GeometricArtSVG from '../components/GeometricArtSVG'
+import Input from '../components/Input'
 
-const Home: NextPage = () => {
+export default function Home() {
+  const [emailInput, setEmailInput] = useState('')
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <div className="flex flex-col px-3 py-14 lg:py-24">
+      {/* Hero Section */}
+      <div className="flex w-full">
+        {/* left half */}
+        <div className="">
+          <h1 className="text-6xl font-extrabold tracking-tight text-gray-900 sm:text-7xl  lg:text-8xl">
+            <span className="block text-5xl sm:text-7xl lg:text-8xl">
+              A modern
+            </span>
+            <span className="block text-red-500">Primal Lifestyle</span>{' '}
+            <span className="block text-5xl sm:text-7xl lg:text-8xl">
+              Brand
+            </span>
+          </h1>
+          <p className="lg-mt-6 mt-3 px-2 text-lg font-semibold md:max-w-xl md:text-xl lg:text-2xl">
+            Creating resources, products, and tooling{' '}
+            <span className="opacity-75">
+              to help reincorporate primal ways into a modern lifestyle
+            </span>
+          </p>
+          <div className="mt-4 flex w-full md:w-3/4 lg:mt-6">
+            <div className="flex-grow pr-2">
+              <Input
+                placeholder="Enter Email..."
+                type="text"
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setEmailInput(e.target?.value)
+                }
+                value={emailInput}
+                className="text-md h-full w-full border-2 border-black px-3 sm:text-lg md:text-xl lg:px-5"
+              />
+            </div>
+            <div className="relative">
+              <Button
+                onClick={() => console.log('partnering up!')}
+                className="text-md border-2 border-red-500 bg-red-500 px-1 py-3 font-semibold text-white md:px-5 md:text-2xl"
+              >
+                Subscribe
+              </Button>
+              <p className="absolute w-full text-center text-xs lg:text-sm">
+                <i>Get Updates</i>
+              </p>
+            </div>
+          </div>
         </div>
-      </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
+        {/* right half */}
+        <div className="relative hidden grow items-end md:flex">
+          <div className="object-right-right absolute max-w-full">
+            <GeometricArtSVG />
+          </div>
+        </div>
+      </div>
+      {/* How it works section */}
+      <div className="py-14 lg:py-24">
+        <div className="w-full pt-14 text-center lg:pt-24">
+          <h2 className="text-2xl font-bold underline decoration-red-500 lg:text-4xl">
+            About
+          </h2>
+          <p className="mx-auto mt-4 px-2 text-lg font-semibold md:max-w-3xl md:text-xl lg:mt-6 lg:text-2xl"></p>
+        </div>
+      </div>
     </div>
   )
 }
-
-export default Home
