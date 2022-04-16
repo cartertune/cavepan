@@ -1,13 +1,17 @@
-import { Router } from 'next/router'
 import Logo from './Logo'
+import _ from 'lodash'
+import { NavBarRoutes } from '../constants/routes'
 
 interface NavbarProps {
   path: string
 }
 function Navbar({ path }: NavbarProps) {
   return (
-    <div className="container mx-auto py-4 px-5">
+    <div className="w-100 container mx-auto flex justify-between py-4 px-5">
       <Logo />
+      {_.map(_.keys(NavBarRoutes), (navKey) => (
+        <NavBarLink navKey={navKey} />
+      ))}
     </div>
   )
 }
