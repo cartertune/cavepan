@@ -1,6 +1,7 @@
 import Logo from './Logo'
 import _ from 'lodash'
 import { NavBarRoutes } from '../constants/routes'
+import NavBarLink from './NavBarLink'
 
 interface NavbarProps {
   path: string

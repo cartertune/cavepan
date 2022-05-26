@@ -1,8 +1,8 @@
 import React from 'react'
-import { NavBarRoutes, RootRoute } from '../constants/routes'
+import { NavBarRoutes } from '../constants/routes'
 
 interface NavBarLinkProps {
-  navKey: RootRoute
+  navKey: string
 }
 const NavBarLink = (props: NavBarLinkProps) => {
   const { navKey } = props
