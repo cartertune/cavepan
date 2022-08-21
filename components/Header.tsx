@@ -3,10 +3,11 @@ import _ from 'lodash'
 import { NavBarRoutes } from '../constants/routes'
 import NavBarLink from './NavBarLink'
 
-interface NavbarProps {
+interface Props {
   path: string
 }
-function Navbar({ path }: NavbarProps) {
+
+function Header({ path }: Props) {
   return (
     <div className="w-100 container mx-auto flex justify-between py-4 px-5">
       <Logo />
@@ -17,4 +18,4 @@ function Navbar({ path }: NavbarProps) {
   )
 }
 
-export default Navbar
+export default Header

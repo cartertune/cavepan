@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Router } from 'next/router'
-import Navbar from '../Navbar'
+import Header from '../Header'
 // import Navbar from '../navbar'
 
 interface MainLayoutProps {
@@ -15,7 +15,7 @@ const MainLayout = ({ children, router }: MainLayoutProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Cavepan</title>
       </Head>
-      <Navbar path={router.asPath} />
+      <Header />
       <div className="container mx-auto">{children}</div>
     </div>
   )
